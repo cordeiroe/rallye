@@ -24,5 +24,8 @@ build/
 *.swp
 *.swo
 
+# Docs (local only)
+rallye-docs/
+
 # macOS
 .DS_Store
