@@ -1,0 +1,28 @@
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.iml
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Supabase
+.supabase/
+
+# FVM
+.fvm/flutter_sdk
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
