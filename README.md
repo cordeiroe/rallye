@@ -24,9 +24,3 @@ Copiar `.env.example` para `.env` e preencher as credenciais:
 cp .env.example .env
 ```
 
-## Documentação
-
-- `CLAUDE.md` — contexto do projeto para o agente
-- `docs/rallye-brief.md` — especificação completa do produto
-- `docs/guidelines.md` — design system
-- `docs/mocks.html` — mocks das telas
