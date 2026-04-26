@@ -9,12 +9,31 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - uses: actions/checkout@v4
+
+      - name: Check if functions exist
+        id: check
+        run: |
+          if [ -n "$(find supabase/functions -name '*.ts' 2>/dev/null | head -1)" ]; then
+            echo "has_functions=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_functions=false" >> $GITHUB_OUTPUT
+          fi
+
       - uses: denoland/setup-deno@v2
+        if: steps.check.outputs.has_functions == 'true'
+
       - run: deno lint supabase/functions/
+        if: steps.check.outputs.has_functions == 'true'
+
       - run: deno fmt --check supabase/functions/
+        if: steps.check.outputs.has_functions == 'true'
+
       - run: deno test supabase/functions/
+        if: steps.check.outputs.has_functions == 'true'
 
       - name: Open issue on failure
         if: failure()
